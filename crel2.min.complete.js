@@ -1,11 +1,9 @@
-this.crel2 = (function(a){
-
-	var f = function() {
+crel2 = function() {
 		var args = arguments,
 			element = args[0],
 			argumentsLength = args.length;
 
-		element = typeof element === 'string' ? a.createElement(element) : element;
+		element = typeof element === 'string' ? document.createElement(element) : element;
 
 		if (argumentsLength === 1) {
 			return element;
@@ -34,13 +32,10 @@ this.crel2 = (function(a){
 		while (argumentsLength > childIndex) {
 			settings_child = args[childIndex++];
 			if (typeof settings_child !== 'object') {
-				settings_child = a.createTextNode(settings_child);
+				settings_child = document.createTextNode(settings_child);
 			}
 			element.appendChild(settings_child);
 		}
 
 		return element;
-	}
-
-	return f;
-})(window.document);
+}
